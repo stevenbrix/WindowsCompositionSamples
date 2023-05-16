@@ -33,7 +33,7 @@ namespace CompositionSampleGallery
         const int   _itemLength = 160;
         const int   _gridMargin = 100;
         const int   _itemMargin = 10;
-        const float _initialShadowBlurRadius = 15.0f;
+        const float _initialShadowBlurRadius = 30.0f;
         const float _initialShadowOpacity = 0.5f;
         int   _shadowHighestZ = 2;
         int   _contentHighestZ = 3;
@@ -83,8 +83,12 @@ namespace CompositionSampleGallery
                 for (int column = 0; column < _columns; ++column, ++imageIdx)
                 {
                     // Create a new square with a solid color
-                    var content = new Rectangle();
-                    content.Fill = new SolidColorBrush(Colors.OldLace);
+                    var content = new StackPanel();
+                    var item = new TextBlock();
+                    item.Text = "Hello world";
+                    content.Background = new SolidColorBrush(Colors.OldLace);
+                    content.Children.Add(item);
+                    content.CornerRadius = new CornerRadius(6);
                     content.Width = _itemLength;
                     content.Height = _itemLength;
 
